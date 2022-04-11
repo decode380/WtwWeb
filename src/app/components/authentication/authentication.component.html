@@ -1,0 +1,22 @@
+<div class="container mt-4 text-center">
+    <div class="card form-container p-5">
+      <h2>Registrar nuevo usuario</h2>
+      <form [formGroup]="AuthenticateUserForm" (ngSubmit)="sendForm();">
+  
+        <mat-form-field class="input-text">
+          <mat-label>Usuario</mat-label>
+          <input type="text" matInput formControlName="Username">
+          <mat-error>Usuario requerido</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="input-text">
+          <mat-label>Contraseña</mat-label>
+          <input type="password" matInput formControlName="Password">
+          <mat-error>Contraseña requerida</mat-error>
+        </mat-form-field>
+  
+        <button class="btn btn-dark mt-3" type="submit">Guardar</button>
+  
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,57 @@
+<div class="container mt-4 text-center">
+  <div class="card form-container p-5">
+    <h2>Registrar nuevo usuario</h2>
+    <form [formGroup]="newUserForm" (ngSubmit)="sendForm();">
+
+      <mat-form-field class="input-text">
+        <mat-label>Usuario</mat-label>
+        <input type="text" matInput formControlName="Username">
+        <mat-error>Usuario requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="Password">
+        <mat-error>Contraseña requerida</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Nombres</mat-label>
+        <input type="text" matInput formControlName="FirstName">
+        <mat-error>Nombres inválidos</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="input-text">
+        <mat-label>Apellidos</mat-label>
+        <input type="text" matInput formControlName="LastName">
+        <mat-error>Apellidos inválidos</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select formControlName="DocumentType">
+          <mat-option value="cc">Cédula de ciudadanía</mat-option>
+          <mat-option value="ce">Cédula de Extranjería</mat-option>
+          <mat-option value="pas">Pasaporte</mat-option>
+          <mat-option value="ti">Tarjeta de identidad</mat-option>    
+        </mat-select>
+        <mat-error>Debes seleccionar una opción</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Número de documento</mat-label>
+        <input type="text" matInput formControlName="DocumentNumber">
+        <mat-error>Documento inválido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-text">
+        <mat-label>Correo electrónico</mat-label>
+        <input type="text" matInput formControlName="Email">
+        <mat-error>Correo inválido</mat-error>
+      </mat-form-field>
+
+      <button class="btn btn-dark mt-3" type="submit">Guardar</button>
+
+    </form>
+  </div>
+</div>
