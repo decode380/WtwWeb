@@ -11,10 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { MaterialModule } from './material/material.module';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { SpinnerModule } from './shared/components/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 
 
 @NgModule({
@@ -37,8 +39,11 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     FormsModule,
     HttpClientModule,
     MaterialModule,
+    SpinnerModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
